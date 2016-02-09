@@ -7,10 +7,10 @@ const EVENT_TYPES = ['keyup', 'keypress', 'keydown'];
 const EV_KEY = 1;
 
 function Keyboard(dev) {
-  this.dev = dev || 'event0';
+  this.dev = (typeof dev === 'undefined') ? 'event0' : dev;
   this.bufferSize = 24;
   this.buffer = new Buffer(this.bufferSize);
-  this.data = fs.createReadStream(`/dev/input/${dev}`);
+  this.data = fs.createReadStream(`/dev/input/${this.dev}`);
   this.onRead();
 }
 
