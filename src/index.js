@@ -1,6 +1,7 @@
 'use strict';
 const fs = require('fs');
 const EventEmitter = require('events').EventEmitter;
+const toKey = require('./keycodes');
 
 const EVENT_TYPES = ['keyup', 'keypress', 'keydown'];
 const EV_KEY = 1;
@@ -28,6 +29,8 @@ Keyboard.prototype.onRead = function onRead() {
       self.emit(event.type, event);
     }
   });
+
+  this.data.on('end', console.log)
 
   this.data.on('error', err => {
     self.emit('error', err);
