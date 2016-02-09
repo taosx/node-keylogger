@@ -1,0 +1,23 @@
+{
+  "name": "node-keylogger",
+  "version": "0.0.1",
+  "description": "Simple Node.js keylogger using event emitters",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "babel --presets es2015 src/ -q -d lib/",
+    "prepublish": "npm run compile",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "keylogger",
+    "keyboard",
+    "input",
+    "linux"
+  ],
+  "author": "Tasos Soukoulis <soukoulis.tasos@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0"
+  }
+}
