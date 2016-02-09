@@ -30,8 +30,6 @@ Keyboard.prototype.onRead = function onRead() {
     }
   });
 
-  this.data.on('end', console.log)
-
   this.data.on('error', err => {
     self.emit('error', err);
     throw new Error(err);
