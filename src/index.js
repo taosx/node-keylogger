@@ -1,8 +1,6 @@
 'use strict';
 const fs = require('fs');
 const EventEmitter = require('events').EventEmitter;
-const inherits = require('util').inherits;
-const toKey = require('./keycodes');
 
 const EVENT_TYPES = ['keyup', 'keypress', 'keydown'];
 const EV_KEY = 1;
@@ -14,6 +12,10 @@ function Keyboard(dev) {
   this.data = fs.createReadStream(`/dev/input/${dev}`);
   this.onRead();
 }
+
+Keyboard.prototype = Object.create(EventEmitter.prototype, {
+  constructor: { value: Keyboard }
+});
 
 Keyboard.prototype.onRead = function onRead() {
   const self = this;
@@ -48,7 +50,6 @@ function parse(input, buffer) {
   return event;
 }
 
-inherits(Keyboard, EventEmitter);
 
 Keyboard.Keys = toKey;
 
