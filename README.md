@@ -40,5 +40,7 @@ Events
 
 TODO
 -----
-Add support for windows
-Add support for osx
+
+- Add support for windows
+
+- Add support for osx
