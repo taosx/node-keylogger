@@ -9,7 +9,7 @@ Install
 -------
 
 ```
-npm install git+https://github.com/taosx/node-keylogger.git
+npm install node-keylogger
 ```
 
 Usage
